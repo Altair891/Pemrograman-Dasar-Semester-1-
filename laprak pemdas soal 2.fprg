@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="laprak pemdas soal 2"/>
+        <attribute name="authors" value="Gilma"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-09-07 03:00:36 PM"/>
+        <attribute name="created" value="R2lsbWE7R0lMTUFSOzIwMjYtMDktMDc7MDI6MDQ6MjYgUE07MjIxOA=="/>
+        <attribute name="edited" value="R2lsbWE7R0lMTUFSOzIwMjYtMDktMDc7MDM6MDA6MzYgUE07MTsyMzI0"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="semester, sks" type="Integer" array="False" size=""/>
+            <declare name="ipk" type="Real" array="False" size=""/>
+            <input variable="semester"/>
+            <input variable="ipk"/>
+            <if expression="(semester == 1) OR (semester == 2)">
+                <then>
+                    <assign variable="sks" expression="24"/>
+                </then>
+                <else>
+                    <if expression="ipk &gt;= 3.00">
+                        <then>
+                            <assign variable="sks" expression="24"/>
+                        </then>
+                        <else>
+                            <if expression="ipk &gt;= 2.50">
+                                <then>
+                                    <assign variable="sks" expression="21"/>
+                                </then>
+                                <else>
+                                    <if expression="ipk &gt;= 2.00">
+                                        <then>
+                                            <assign variable="sks" expression="18"/>
+                                        </then>
+                                        <else>
+                                            <assign variable="sks" expression="15"/>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <output expression="sks" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

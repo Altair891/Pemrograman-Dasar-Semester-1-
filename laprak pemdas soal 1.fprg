@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="laprak pemdas 1"/>
+        <attribute name="authors" value="Gilma"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-09-07 02:00:48 PM"/>
+        <attribute name="created" value="R2lsbWE7R0lMTUFSOzIwMjYtMDktMDc7MDE6MDU6NDUgUE07MjIxOQ=="/>
+        <attribute name="edited" value="R2lsbWE7R0lMTUFSOzIwMjYtMDktMDc7MDI6MDA6NDggUE07MTsyMzI2"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="totalBelanja, diskon, totalBayar" type="Real" array="False" size=""/>
+            <declare name="kategori" type="String" array="False" size=""/>
+            <declare name="usiaAkun" type="Integer" array="False" size=""/>
+            <declare name="promoLain" type="Boolean" array="False" size=""/>
+            <input variable="totalBelanja"/>
+            <input variable="kategori"/>
+            <input variable="usiaAkun"/>
+            <input variable="promoLain"/>
+            <if expression="(kategori == &quot;Elektronik&quot;) AND (usiaAkun &gt;= 30) AND (promoLain == false) AND (totalBelanja &gt;= 150000)">
+                <then>
+                    <assign variable="diskon" expression="totalBelanja * 0.15"/>
+                    <if expression="diskon &gt; 50000">
+                        <then>
+                            <assign variable="diskon" expression="50000"/>
+                        </then>
+                        <else/>
+                    </if>
+                </then>
+                <else>
+                    <assign variable="diskon" expression="0"/>
+                </else>
+            </if>
+            <assign variable="totalBayar" expression="totalBelanja - diskon"/>
+            <output expression="totalBayar" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

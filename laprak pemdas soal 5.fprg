@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="laprak pemdas soal 5"/>
+        <attribute name="authors" value="Gilma"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-09-07 08:31:22 PM"/>
+        <attribute name="created" value="R2lsbWE7R0lMTUFSOzIwMjYtMDktMDc7MDc6NTg6MTkgUE07MjIzNA=="/>
+        <attribute name="edited" value="R2lsbWE7R0lMTUFSOzIwMjYtMDktMDc7MDg6MzE6MjIgUE07MTsyMzI4"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="uts, uas, na, persentaseHadir" type="Real" array="False" size=""/>
+            <declare name="kehadiran" type="Integer" array="False" size=""/>
+            <declare name="nilaiHuruf, status" type="String" array="False" size=""/>
+            <input variable="uts"/>
+            <input variable="uas"/>
+            <input variable="kehadiran"/>
+            <assign variable="persentaseHadir" expression="(kehadiran / 16.0) * 100"/>
+            <if expression="persentaseHadir &lt; 80">
+                <then>
+                    <assign variable="status" expression="&quot;Gugur&quot;"/>
+                    <assign variable="nilaiHuruf" expression="&quot;E&quot;"/>
+                </then>
+                <else>
+                    <assign variable="status" expression="&quot;Lulus&quot;"/>
+                    <assign variable="na" expression="(0.40 * uts) + (0.60 * uas)"/>
+                    <if expression="na &gt; 80">
+                        <then>
+                            <assign variable="nilaiHuruf" expression="&quot;A&quot;"/>
+                        </then>
+                        <else>
+                            <if expression="na &gt; 75">
+                                <then>
+                                    <assign variable="nilaiHuruf" expression="&quot;B+&quot;"/>
+                                </then>
+                                <else>
+                                    <if expression="na &gt; 69">
+                                        <then>
+                                            <assign variable="nilaiHuruf" expression="&quot;B&quot;"/>
+                                        </then>
+                                        <else>
+                                            <if expression="na &gt; 60">
+                                                <then>
+                                                    <assign variable="nilaiHuruf" expression="&quot;C+&quot;"/>
+                                                </then>
+                                                <else>
+                                                    <if expression="na &gt; 55">
+                                                        <then>
+                                                            <assign variable="nilaiHuruf" expression="&quot;C&quot;"/>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="na &gt; 50">
+                                                                <then>
+                                                                    <assign variable="nilaiHuruf" expression="&quot;D+&quot;"/>
+                                                                </then>
+                                                                <else>
+                                                                    <if expression="na &gt; 44">
+                                                                        <then>
+                                                                            <assign variable="nilaiHuruf" expression="&quot;D&quot;"/>
+                                                                        </then>
+                                                                        <else>
+                                                                            <assign variable="nilaiHuruf" expression="&quot;E&quot;"/>
+                                                                            <assign variable="status" expression="&quot;Gugur&quot;"/>
+                                                                        </else>
+                                                                    </if>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <output expression="nilaiHuruf &amp; &quot; - &quot; &amp; status" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
