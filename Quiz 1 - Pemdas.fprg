@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Quiz 1 - Pemdas"/>
+        <attribute name="authors" value="Gilma"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-09-28 10:50:34 AM"/>
+        <attribute name="created" value="R2lsbWE7R0lMTUFSOzIwMjYtMDktMjg7MTA6Mzk6NTAgQU07MjIxMA=="/>
+        <attribute name="edited" value="R2lsbWE7R0lMTUFSOzIwMjYtMDktMjg7MTA6NTA6MzQgQU07MTsyMzEz"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="x1, x2, i, jumlah" type="Integer" array="False" size=""/>
+            <input variable="x1"/>
+            <input variable="x2"/>
+            <assign variable="jumlah" expression="0"/>
+            <assign variable="i" expression="x1"/>
+            <while expression="i &lt;= x2">
+                <if expression="i % 3 = 0 Or i % 5 = 0">
+                    <then>
+                        <assign variable="jumlah" expression="jumlah + i"/>
+                    </then>
+                    <else/>
+                </if>
+                <assign variable="i" expression="i + 1"/>
+            </while>
+            <output expression="jumlah" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

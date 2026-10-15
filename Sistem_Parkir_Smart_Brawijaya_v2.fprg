@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Sistem Parkir Smart Brawijaya"/>
+        <attribute name="authors" value="Deryl Jibran Putra Halim"/>
+        <attribute name="about" value="Menghitung total bayar parkir sesuai jenis kendaraan, denda inap, dan diskon member"/>
+        <attribute name="saved" value="2026-09-17 04:58:14 PM"/>
+        <attribute name="created" value="R2lsbWE7R0lMTUFSOzIwMjYtMDktMTc7MDQ6NTc6NTkgUE07MjIzNQ=="/>
+        <attribute name="edited" value="R2lsbWE7R0lMTUFSOzIwMjYtMDktMTc7MDQ6NTg6MTQgUE07MTsyMzM1"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="jenisKendaraan, lamaParkir, statusMember, totalTarif" type="Integer" array="False" size=""/>
+            <assign variable="totalTarif" expression="0"/>
+            <output expression="&quot;Pilih Jenis Kendaraan (1: Motor, 2: Mobil): &quot;" newline="False"/>
+            <input variable="jenisKendaraan"/>
+            <output expression="&quot;Masukkan Lama Parkir (jam): &quot;" newline="False"/>
+            <input variable="lamaParkir"/>
+            <output expression="&quot;Apakah Member Civitas Akademika? (1: Ya, 0: Tidak): &quot;" newline="False"/>
+            <input variable="statusMember"/>
+            <comment text="Cek apakah jenis kendaraan valid (1 atau 2)"/>
+            <if expression="jenisKendaraan == 1 || jenisKendaraan == 2">
+                <then>
+                    <comment text="Percabangan 1: hitung tarif dasar sesuai jenis kendaraan"/>
+                    <if expression="jenisKendaraan == 1">
+                        <then>
+                            <if expression="lamaParkir &gt; 0">
+                                <then>
+                                    <assign variable="totalTarif" expression="2000 + (lamaParkir - 1) * 1000"/>
+                                </then>
+                                <else/>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="lamaParkir &gt; 0">
+                                <then>
+                                    <assign variable="totalTarif" expression="5000 + (lamaParkir - 1) * 2000"/>
+                                </then>
+                                <else/>
+                            </if>
+                        </else>
+                    </if>
+                    <comment text="Percabangan 2: denda inap jika lebih dari 24 jam"/>
+                    <if expression="lamaParkir &gt; 24">
+                        <then>
+                            <assign variable="totalTarif" expression="totalTarif + 50000"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <comment text="Percabangan 3: diskon member"/>
+                    <if expression="statusMember == 1">
+                        <then>
+                            <assign variable="totalTarif" expression="totalTarif - 2000"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <comment text="Pastikan total tidak negatif"/>
+                    <if expression="totalTarif &lt; 0">
+                        <then>
+                            <assign variable="totalTarif" expression="0"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <output expression="&quot;Total Bayar Parkir: Rp &quot; &amp; totalTarif" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;Jenis kendaraan tidak valid!&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
